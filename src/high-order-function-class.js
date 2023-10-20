@@ -10,10 +10,13 @@ function customFilter(genericArray, callbackFunction) {
   return copyArray;
 }
 
-const myArray = [1, 2, 3, 4];
+const myArray = ["1", "2", "3", "4", "2", "2", "2", "2", "0", "2", "42", "432"];
 
-const predicate = (number) => number > 2;
+// value = 1 and 1 !== 2 so this is false
+// value = 2 and 2 === 2 so this is true
+// the function will stop, and return the INDEX of the element
+const predicate = (value) => value.includes("2");
 
-const evenNumbers = customFilter(myArray, predicate);
+const res = myArray.filter(predicate); // equivalent "findAll"
 
-console.log(evenNumbers);
+console.log(res);
